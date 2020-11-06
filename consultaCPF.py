@@ -65,7 +65,7 @@ def tipos():
   tool=input(f'{C}[{G}+{C}] Selecione a forma de operação ({G}1 {C}ou {G}2{C}): ')
   if tool=='1':
     cpf=input(f'{C}[{G}*{C}] Informe o CPF a ser consultado (sem pontos ou traços): {B}')
-    consulta()
+    consulta(cpf)
   elif tool=='2':
     gerarcpf()
   else:
@@ -78,11 +78,11 @@ def gerarcpf():
   print(f'{C}[{G}*{C}] Gerando CPF...')
   time.sleep(1)
   cpf=requests.request('GET','http://geradorapp.com/api/v1/cpf/generate?token=f01e0024a26baef3cc53a2ac208dd141').json()
-  cpf=gerador['data']['number']
+  cpf=cpf['data']['number']
   print(f'{C}[{G}+{C}] O CPF gerado foi: {B}'+cpf)
   consulta(cpf)
   
-def consulta():
+def consulta(cpf):
   results=requests.request('GET', a+cpf+b).json()
   if results['status']==False:
     rf=results['message']
