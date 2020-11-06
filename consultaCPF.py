@@ -60,7 +60,7 @@ Consulta de CPF gratis!''')
 def consulta():
   cpf=input(f'{C}[{G}+{C}]Informe o CPF a ser consultado (sem pontos ou traços): {B}')
  
-  results=requests.request('GET', a+cpf+b).json()
+  results=requests.request('GET', a+cpf+b).json().strip()
   dados=results['result'][0]
   if results['status']=='false':
     print('{C}[{R}-{C}]Numero nao encontrado na base da Receita Federal, tente outro.')
