@@ -68,6 +68,11 @@ def tipos():
     consulta()
   elif tool=='2':
     gerarcpf()
+  else:
+    print(f'{C}[{R}-{C}] Seleção invlida.')
+    time.sleep(1)
+    print()
+    tipos()
     
 def gerarcpf():
   print(f'{C}[{G}*{C}] Gerando CPF...')
@@ -96,7 +101,7 @@ def consulta():
 ''')
   nova=input(f'{C}[{G}+{C}]Deseja realizar uma nova consulta?[{G}s{C}/{R}n{C}]: ').lower()
   if nova=='s' or nova=='sim':
-    
+    tipos()
   else:
     print()
     print(f'{C}Me acompanhe no Github: {G}https://github.com/p0isonBR{C}')
