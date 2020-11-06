@@ -78,8 +78,11 @@ def gerarcpf():
   print(f'{C}[{G}*{C}] Gerando CPF...')
   time.sleep(1)
   cpf=requests.request('GET','http://geradorapp.com/api/v1/cpf/generate?token=f01e0024a26baef3cc53a2ac208dd141').json()
+  cpf2=cpf['data']['number_formatted']
   cpf=cpf['data']['number']
-  print(f'{C}[{G}+{C}] O CPF gerado foi: {B}'+cpf)
+  print(f'{C}[{Y}i{C}] O CPF gerado foi: {B}'+cpf2)
+  time.sleep(1)
+  print(f'{C}[{G}*{C}] Consultando CPF gerado...')
   consulta(cpf)
   
 def consulta(cpf):
