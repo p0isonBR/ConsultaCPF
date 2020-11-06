@@ -69,7 +69,7 @@ def tipos():
   elif tool=='2':
     gerarcpf()
   else:
-    print(f'{C}[{R}-{C}] Seleção invlida.')
+    print(f'{C}[{R}-{C}] Seleção inválida.')
     time.sleep(1)
     print()
     tipos()
