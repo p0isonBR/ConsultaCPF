@@ -62,6 +62,7 @@ def consulta():
  
   results=requests.request('GET', a+cpf+b).json()
   if results['status']==False:
+    f=results['message']
     print(f'{C}[{R}-{C}]Numero nao encontrado na base da Receita Federal, tente outro.')
     consulta()
   nome=results['result']['nome_da_pf']
