@@ -58,7 +58,7 @@ print(f'''{G}*By PoisonBR
 Consulta de CPF gratis!''')
 def tipos():
   print(f'''
-{C}Formas de operação: 
+{C}[{G}i{C}] Formas de operação: 
 
 [{G}1{C}] Consultar CPF.
 [{G}2{C}] Gerar CPF e consultar.
