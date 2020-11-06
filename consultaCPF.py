@@ -80,4 +80,4 @@ def consulta():
     if nova=='s' or nova=='sim':
       consulta()
     else:
-      print(f'{C}Me acompanhe no Github: {G}https://github.com/p0isonBR'{C})
+      print(f'{C}Me acompanhe no Github: {G}https://github.com/p0isonBR{C}')
