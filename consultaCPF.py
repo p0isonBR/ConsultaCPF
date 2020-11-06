@@ -72,7 +72,6 @@ def tipos():
   else:
     print(f'{C}[{R}-{C}] Seleção inválida.')
     time.sleep(1)
-    print()
     tipos()
     
 def gerarcpf():
