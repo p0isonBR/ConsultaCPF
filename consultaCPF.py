@@ -71,11 +71,11 @@ def consulta():
     inscricao=result['result']['data_inscricao']
 
     print(f'''
-{C}Nome: {nome}
-{C}Data de nascimento: {nascimento.replace('\','')}
-{C}Data de inscrição: {inscricao}
-{C}Situação Cadastral: {situacao}
-...)
+    {C}Nome: {nome}
+    {C}Data de nascimento: {nascimento.replace('\','')}
+    {C}Data de inscrição: {inscricao}
+    {C}Situação Cadastral: {situacao}''')
+    
     nova=input(f'{C}Deseja realizar uma nova consulta?[{G}s{C}/{R}n{C}]: ').lower()
     if nova=='s' or nova=='sim':
       consulta()
