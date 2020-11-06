@@ -60,16 +60,15 @@ Consulta de CPF gratis!''')
 def consulta():
   cpf=input(f'{C}[{G}+{C}]Informe o CPF a ser consultado (sem pontos ou traços): {B}')
  
-  results=requests.request('GET', a+cpf+b).text
-  results=json.loads(results)
-  dados=results.get('result')
-  if results.get('status')=='false':
+  results=requests.request('GET', a+cpf+b).json()
+  dados=result['result'][0]
+  if results['status']=='false':
     print('{C}[{R}-{C}]Numero nao encontrado na base da Receita Federal, tente outro.')
     consulta()
-  nome=dados.get('nome_da_pf')
-  nascimento=dados.get('data_nascimento')
-  situacao=dados.get('situacao_cadastral')
-  inscricao=dados.get('data_inscricao')
+  nome=dados['nome_da_pf']
+  nascimento=dados['data_nascimento']
+  situacao=dados['situacao_cadastral']
+  inscricao=dados['data_inscricao']
 
   print(f'''
 {C}Nome: {nome}
