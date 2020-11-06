@@ -61,25 +61,26 @@ def consulta():
   cpf=input(f'{C}[{G}+{C}]Informe o CPF a ser consultado (sem pontos ou traços): {B}')
  
   results=requests.request('GET', a+cpf+b).text
+  results=json.loads(results)
   dados=results.get('result')
   if results.get('status')=='false':
     print('{C}[{R}-{C}]Numero nao encontrado na base da Receita Federal, tente outro.')
     consulta()
-  else:
-    nome=dados.get('nome_da_pf')
-    nascimento=dados.get('data_nascimento')
-    situacao=dados.get('situacao_cadastral')
-    inscricao=dados.get('data_inscricao')
+  nome=dados.get('nome_da_pf')
+  nascimento=dados.get('data_nascimento')
+  situacao=dados.get('situacao_cadastral')
+  inscricao=dados.get('data_inscricao')
 
-    print(f'''
-    {C}Nome: {nome}
-    {C}Data de nascimento: {nascimento}
-    {C}Data de inscrição: {inscricao}
-    {C}Situação Cadastral: {situacao}
-    ''')
-    nova=input(f'{C}Deseja realizar uma nova consulta?[{G}s{C}/{R}n{C}]: ').lower()
-    if nova=='s' or nova=='sim':
-      consulta()
-    else:
-      print(f'{C}Me acompanhe no Github: {G}https://github.com/p0isonBR{C}')
+  print(f'''
+{C}Nome: {nome}
+{C}Data de nascimento: {nascimento}
+{C}Data de inscrição: {inscricao}
+{C}Situação Cadastral: {situacao}
+''')
+  nova=input(f'{C}Deseja realizar uma nova consulta?[{G}s{C}/{R}n{C}]: ').lower()
+  if nova=='s' or nova=='sim':
+    consulta()
+  else:
+    print(f'{C}Me acompanhe no Github: {G}https://github.com/p0isonBR{C}')
+    exit()
 consulta()
