@@ -55,10 +55,11 @@ print(f'''{G}*By PoisonBR
 {B}██║     ██╔═══╝ ██╔══╝  {C}   ██║   ██║   ██║██║   ██║██║     ╚════██║
 {B}╚██████╗██║     ██║     {C}   ██║   ╚██████╔╝╚██████╔╝███████╗███████║
 {B} ╚═════╝╚═╝     ╚═╝     {C}   ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝╚══════╝ {G}v1.0
-Consulta de CPF gratis!
-''')
+Consulta de CPF gratis!''')
 def tipos():
-  print(f'''{C}Formas de operação: 
+  print(f'''
+{C}Formas de operação: 
+
 [{G}1{C}] Consultar CPF.
 [{G}2{C}] Gerar CPF e consultar.
 ''')
