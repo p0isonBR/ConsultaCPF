@@ -1,4 +1,4 @@
-import requests, os, time, base64
+import requests, os, time, base64, json
 
 R='\033[1;31m'; B='\033[1;34m'; C='\033[1;37m'; Y='\033[1;33m'; G='\033[1;32m'; RT='\033[;0m'
 os.system('git pull && clear')
