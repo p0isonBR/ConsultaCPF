@@ -58,7 +58,7 @@ print(f'''{G}*By PoisonBR
 Consulta de CPF gratis!''')
 
 def consulta():
-  cpf=input('{C}[{G}+{C}]Informe o CPF a ser consultado (sem pontos ou traços): {B}')
+  cpf=input(f'{C}[{G}+{C}]Informe o CPF a ser consultado (sem pontos ou traços): {B}')
  
   result=requests.requets('GET', a+cpf+b).json()
   if result['status']=='false':
