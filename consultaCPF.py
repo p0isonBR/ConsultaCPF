@@ -55,11 +55,29 @@ print(f'''{G}*By PoisonBR
 {B}██║     ██╔═══╝ ██╔══╝  {C}   ██║   ██║   ██║██║   ██║██║     ╚════██║
 {B}╚██████╗██║     ██║     {C}   ██║   ╚██████╔╝╚██████╔╝███████╗███████║
 {B} ╚═════╝╚═╝     ╚═╝     {C}   ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝╚══════╝ {C}v1.0{C}
-Consulta de CPF gratis!''')
-
+Consulta de CPF gratis!
+''')
+def tipos():
+  print(f'''{C}Formas de operação: 
+[{G}1{C}] Consultar CPF.
+[{G}2{C}] Gerar CPF e consultar.
+''')
+  tool=input(f'{C}[{G}+{C}] Selecione a forma de operação ({G}1 {C}ou {G}2{C}): ')
+  if tool=='1':
+    cpf=input(f'{C}[{G}*{C}] Informe o CPF a ser consultado (sem pontos ou traços): {B}')
+    consulta()
+  elif tool=='2':
+    gerarcpf()
+    
+def gerarcpf():
+  print(f'{C}[{G}*{C}] Gerando CPF...')
+  time.sleep(1)
+  gerador=requests.request('GET','http://geradorapp.com/api/v1/cpf/generate?token=f01e0024a26baef3cc53a2ac208dd141').json()
+  cpf=gerador['data']['number']
+  print(f'{C}[{G}+{C}] O CFF gerado foi: {B}'+cpf)
+  consulta()
+  
 def consulta():
-  cpf=input(f'{C}[{G}+{C}] Informe o CPF a ser consultado (sem pontos ou traços): {B}')
- 
   results=requests.request('GET', a+cpf+b).json()
   if results['status']==False:
     rf=results['message']
@@ -78,8 +96,8 @@ def consulta():
 ''')
   nova=input(f'{C}[{G}+{C}]Deseja realizar uma nova consulta?[{G}s{C}/{R}n{C}]: ').lower()
   if nova=='s' or nova=='sim':
-    consulta()
+    
   else:
+    print()
     print(f'{C}Me acompanhe no Github: {G}https://github.com/p0isonBR{C}')
     exit()
-consulta()
