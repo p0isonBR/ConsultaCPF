@@ -87,7 +87,7 @@ def consulta(cpf):
   if results['status']==False:
     rf=results['message']
     print(f'{C}[{R}-{C}] Erro, resposta do servidor: '+rf)
-    consulta()
+    tipos()
   nome=results['result']['nome_da_pf']
   nascimento=results['result']['data_nascimento']
   situacao=results['result']['situacao_cadastral']
