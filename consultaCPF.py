@@ -97,10 +97,10 @@ def consulta(cpf):
   inscricao=results['result']['data_inscricao']
 
   print(f'''
-{C}Nome:  {B}{nome}
-{C}Data de nascimento:  {B}{nascimento}
-{C}Data de inscrição:  {B}{inscricao}
-{C}Situação Cadastral:  {B}{situacao}
+{C}Nome: {B}{nome}
+{C}Data de nascimento: {B}{nascimento}
+{C}Data de inscrição: {B}{inscricao}
+{C}Situação Cadastral: {B}{situacao}
 ''')
   nova=input(f'{C}[{G}+{C}]Deseja realizar uma nova consulta?[{G}s{C}/{R}n{C}]: ').lower()
   if nova=='s' or nova=='sim':
