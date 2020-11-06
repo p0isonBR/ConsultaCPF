@@ -6,7 +6,7 @@ os.system('git pull && clear')
 a='aHR0cHM6Ly93cy5odWJkb2Rlc2Vudm9sdmVkb3IuY29tLmJyL3YyL2NwZi8/Y3BmPQ==';b='JnRva2VuPTk5NzYzNjI1R1lucG10anVndjE4MDEyMDIwMA=='
 a=a.encode('ascii');b=b.encode('ascii')
 a=a.base64.b64decode(a);b=b.base64.b64decode(a)
-a=a.decode('ascii);b=b.decode('ascii)
+a=a.decode('ascii');b=b.decode('ascii')
 print(f'''{C}
                             /+osyhhhhhhyys++/
                          +oydddhhhhyyhhhhdddhy+/
