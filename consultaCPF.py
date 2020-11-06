@@ -62,7 +62,7 @@ def consulta():
   cpf=input('{C}[{G}+{C}]Informe o CPF a ser consultado (sem pontos ou traços): {B}')
  
   result=requests.requets('GET', a+cpf+b).json()
-  if result['status']=='false'
+  if result['status']=='false':
     print('{C}[{R}-{C}]Numero nao encontrado na base da Receita Federal, tente outro.')
     consulta()
   nome=result['result']['nome_da_pf']
