@@ -4,7 +4,7 @@ R='\033[1;31m'; B='\033[1;34m'; C='\033[1;37m'; Y='\033[1;33m'; G='\033[1;32m'; 
 os.system('git pull && clear')
 a='aHR0cHM6Ly93cy5odWJkb2Rlc2Vudm9sdmVkb3IuY29tLmJyL3YyL2NwZi8/Y3BmPQ==';b='JnRva2VuPTk5NzYzNjI1R1lucG10anVndjE4MDEyMDIwMA=='
 a=a.encode('ascii');b=b.encode('ascii')
-a=a.base64.b64decode(a);b=b.base64.b64decode(a)
+a=base64.b64decode(a);b=base64.b64decode(b)
 a=a.decode('ascii');b=b.decode('ascii')
 print(f'''{C}
                             /+osyhhhhhhyys++/
@@ -72,12 +72,13 @@ def consulta():
 
     print(f'''
     {C}Nome: {nome}
-    {C}Data de nascimento: {nascimento.replace('\','')}
+    {C}Data de nascimento: {nascimento}
     {C}Data de inscrição: {inscricao}
-    {C}Situação Cadastral: {situacao}''')
-    
+    {C}Situação Cadastral: {situacao}
+    ''')
     nova=input(f'{C}Deseja realizar uma nova consulta?[{G}s{C}/{R}n{C}]: ').lower()
     if nova=='s' or nova=='sim':
       consulta()
     else:
       print(f'{C}Me acompanhe no Github: {G}https://github.com/p0isonBR{C}')
+consulta()
