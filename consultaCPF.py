@@ -77,10 +77,10 @@ def tipos():
 def gerarcpf():
   print(f'{C}[{G}*{C}] Gerando CPF...')
   time.sleep(1)
-  gerador=requests.request('GET','http://geradorapp.com/api/v1/cpf/generate?token=f01e0024a26baef3cc53a2ac208dd141').json()
+  cpf=requests.request('GET','http://geradorapp.com/api/v1/cpf/generate?token=f01e0024a26baef3cc53a2ac208dd141').json()
   cpf=gerador['data']['number']
-  print(f'{C}[{G}+{C}] O CFF gerado foi: {B}'+cpf)
-  consulta()
+  print(f'{C}[{G}+{C}] O CPF gerado foi: {B}'+cpf)
+  consulta(cpf)
   
 def consulta():
   results=requests.request('GET', a+cpf+b).json()
