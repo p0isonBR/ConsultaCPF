@@ -66,13 +66,13 @@ def consulta():
     print('{C}[{R}-{C}]Numero nao encontrado na base da Receita Federal, tente outro.')
     consulta()
   nome=result['result']['nome_da_pf']
-  nascimento=result['result']['data_nascimento'].replace('\','')
+  nascimento=result['result']['data_nascimento']
   situacao=result['result']['situacao_cadastral']
   inscricao=result['result']['data_inscricao']
 
   print(f'''
 {C}Nome: {nome}
-{C}Data de nascimento: {nascimento}
+{C}Data de nascimento: {nascimento.replace('\','')}
 {C}Data de inscrição: {inscricao}
 {C}Situação Cadastral: {situacao}
 ...)
