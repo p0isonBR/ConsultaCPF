@@ -1,7 +1,6 @@
 import requests, os, time, base64
 
 R='\033[1;31m'; B='\033[1;34m'; C='\033[1;37m'; Y='\033[1;33m'; G='\033[1;32m'; RT='\033[;0m'
-
 os.system('git pull && clear')
 a='aHR0cHM6Ly93cy5odWJkb2Rlc2Vudm9sdmVkb3IuY29tLmJyL3YyL2NwZi8/Y3BmPQ==';b='JnRva2VuPTk5NzYzNjI1R1lucG10anVndjE4MDEyMDIwMA=='
 a=a.encode('ascii');b=b.encode('ascii')
@@ -56,7 +55,7 @@ print(f'''{G}*By PoisonBR
 {B}██║     ██╔═══╝ ██╔══╝  {C}   ██║   ██║   ██║██║   ██║██║     ╚════██║
 {B}╚██████╗██║     ██║     {C}   ██║   ╚██████╔╝╚██████╔╝███████╗███████║
 {B} ╚═════╝╚═╝     ╚═╝     {C}   ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝╚══════╝ {C}v1.0{C}
- Consulta de CPF gratis!''')
+Consulta de CPF gratis!''')
 
 def consulta():
   cpf=input('{C}[{G}+{C}]Informe o CPF a ser consultado (sem pontos ou traços): {B}')
@@ -65,20 +64,20 @@ def consulta():
   if result['status']=='false':
     print('{C}[{R}-{C}]Numero nao encontrado na base da Receita Federal, tente outro.')
     consulta()
-  nome=result['result']['nome_da_pf']
-  nascimento=result['result']['data_nascimento']
-  situacao=result['result']['situacao_cadastral']
-  inscricao=result['result']['data_inscricao']
+  else:
+    nome=result['result']['nome_da_pf']
+    nascimento=result['result']['data_nascimento']
+    situacao=result['result']['situacao_cadastral']
+    inscricao=result['result']['data_inscricao']
 
-  print(f'''
+    print(f'''
 {C}Nome: {nome}
 {C}Data de nascimento: {nascimento.replace('\','')}
 {C}Data de inscrição: {inscricao}
 {C}Situação Cadastral: {situacao}
 ...)
-  nova=input(f'{C}Deseja realizar uma nova consulta?[{G}s{C}/{R}n{C}]: ').lower()
-  if nova=='s' or nova=='sim':
-    consulta()
-  else:
-    print(f'{C}Me acompanhe no Github: {G}https://github.com/p0isonBR'{C})
-    exit()
+    nova=input(f'{C}Deseja realizar uma nova consulta?[{G}s{C}/{R}n{C}]: ').lower()
+    if nova=='s' or nova=='sim':
+      consulta()
+    else:
+      print(f'{C}Me acompanhe no Github: {G}https://github.com/p0isonBR'{C})
