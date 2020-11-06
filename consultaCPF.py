@@ -58,12 +58,12 @@ print(f'''{G}*By PoisonBR
 Consulta de CPF gratis!''')
 
 def consulta():
-  cpf=input(f'{C}[{G}+{C}]Informe o CPF a ser consultado (sem pontos ou traços): {B}')
+  cpf=input(f'{C}[{G}+{C}] Informe o CPF a ser consultado (sem pontos ou traços): {B}')
  
   results=requests.request('GET', a+cpf+b).json()
   if results['status']==False:
     rf=results['message']
-    print(f'{C}[{R}-{C}] '+rf)
+    print(f'{C}[{R}-{C}] Erro, resposta do servidor: '+rf)
     consulta()
   nome=results['result']['nome_da_pf']
   nascimento=results['result']['data_nascimento']
@@ -71,12 +71,12 @@ def consulta():
   inscricao=results['result']['data_inscricao']
 
   print(f'''
-{C}Nome: {nome}
-{C}Data de nascimento: {nascimento}
-{C}Data de inscrição: {inscricao}
-{C}Situação Cadastral: {situacao}
+{C}Nome:  {B}{nome}
+{C}Data de nascimento:  {B}{nascimento}
+{C}Data de inscrição:  {B}{inscricao}
+{C}Situação Cadastral:  {B}{situacao}
 ''')
-  nova=input(f'{C}Deseja realizar uma nova consulta?[{G}s{C}/{R}n{C}]: ').lower()
+  nova=input(f'{C}[{G}+{C}]Deseja realizar uma nova consulta?[{G}s{C}/{R}n{C}]: ').lower()
   if nova=='s' or nova=='sim':
     consulta()
   else:
