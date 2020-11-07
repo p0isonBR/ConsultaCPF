@@ -91,9 +91,9 @@ def consulta(cpf):
     rf=results['message']
     print(f'{C}[{R}-{C}] Erro, resposta do servidor: '+rf)
     tipos()
-  nome=results['result']['nome_da_pf']
+  nome=results['result']['nome_da_pf'].capitalize()
   nascimento=results['result']['data_nascimento']
-  situacao=results['result']['situacao_cadastral']
+  situacao=results['result']['situacao_cadastral'].capitalize()
   inscricao=results['result']['data_inscricao']
 
   print(f'''
