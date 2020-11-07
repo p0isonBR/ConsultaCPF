@@ -98,6 +98,7 @@ def consulta(cpf):
 
   print(f'''
 {C}[{G}!{C}] Resultado da consulta:
+
 {C}Nome: {B}{nome}
 {C}Data de nascimento: {B}{nascimento}
 {C}Data de inscrição: {B}{inscricao}
