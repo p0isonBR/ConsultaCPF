@@ -93,14 +93,14 @@ def consulta(cpf):
   }
   r=requests.post(a, headers=h, data=f'acao=consultar%20cpf&cpf={cpf}&nocache=0.7636039437638835').text
   print(f'''
-CPF: {re.search('NRCPF="(.*?)"', r).group(1)}
-Nome: {re.search('NOPESSOAFISICA="(.*?)"', r).group(1).title()}
-Nascimento: {re.search('DTNASCIMENTO="(.*?)"', r).group(1)}
-Nome da Mae: {re.search('NOMAE="(.*?)"', r).group(1).title()}
-Endereco: {re.search('NOLOGRADOURO="(.*?)"', r).group(1)}, {re.search('NRLOGRADOURO="(.*?)"', r).group(1)}
-Bairro: {re.search('NOBAIRRO="(.*?)"', r).group(1).title()}
-Cidade: {re.search('NOMUNICIPIO="(.*?)"', r).group(1).title()}-{re.search('SGUF="(.*?)"', r).group(1)}
-CEP: {re.search('NRCEP="(.*?)"', r).group(1)}
+{C}CPF: {B}{re.search('NRCPF="(.*?)"', r).group(1)}
+{C}Nome: {B}{re.search('NOPESSOAFISICA="(.*?)"', r).group(1).title()}
+{C}Nascimento: {B}{re.search('DTNASCIMENTO="(.*?)"', r).group(1)}
+{C}Nome da Mae: {B}{re.search('NOMAE="(.*?)"', r).group(1).title()}
+{C}Endereco: {B}{re.search('NOLOGRADOURO="(.*?)"', r).group(1)}, {re.search('NRLOGRADOURO="(.*?)"', r).group(1)}
+{C}Bairro: {B}{re.search('NOBAIRRO="(.*?)"', r).group(1).title()}
+{C}Cidade: {B}{re.search('NOMUNICIPIO="(.*?)"', r).group(1).title()}-{re.search('SGUF="(.*?)"', r).group(1)}
+{C}CEP: {B}{re.search('NRCEP="(.*?)"', r).group(1)}
 ''')
   nova=input(f'{C}[{G}+{C}]Deseja realizar uma nova consulta?[{G}s{C}/{R}n{C}]: ').lower()
   if nova=='s' or nova=='sim':
