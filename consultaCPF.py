@@ -1,11 +1,11 @@
-import requests, os, time, base64, json
+import requests, os, time, base64, json, re
 
 R='\033[1;31m'; B='\033[1;34m'; C='\033[1;37m'; Y='\033[1;33m'; G='\033[1;32m'; RT='\033[;0m'
 os.system('git pull && clear')
-a='aHR0cHM6Ly93cy5odWJkb2Rlc2Vudm9sdmVkb3IuY29tLmJyL3YyL2NwZi8/Y3BmPQ==';b='JnRva2VuPTk5NzYzNjI1R1lucG10anVndjE4MDEyMDIwMA=='
-a=a.encode('ascii');b=b.encode('ascii')
-a=base64.b64decode(a);b=base64.b64decode(b)
-a=a.decode('ascii');b=b.decode('ascii')
+a='aHR0cDovL3d3dy5qdXZlbnR1ZGV3ZWIubXRlLmdvdi5ici9wbnBlcGVzcXVpc2FzLmFzcA=='
+a=a.encode('ascii')
+a=base64.b64decode(a)
+a=a.decode('ascii')
 print(f'''{C}
                             /+osyhhhhhhyys++/
                          +oydddhhhhyyhhhhdddhy+/
@@ -86,23 +86,21 @@ def gerarcpf():
   consulta(cpf)
   
 def consulta(cpf):
-  results=requests.request('GET', a+cpf+b).json()
-  if results['status']==False:
-    rf=results['message']
-    print(f'{C}[{R}-{C}] Erro, resposta do servidor: '+rf)
-    tipos()
-  nome=results['result']['nome_da_pf'].capitalize()
-  nascimento=results['result']['data_nascimento']
-  situacao=results['result']['situacao_cadastral'].capitalize()
-  inscricao=results['result']['data_inscricao']
-
+  h={
+    'Content-Type': "text/xml, application/x-www-form-urlencoded;charset=ISO-8859-1, text/xml; charset=ISO-8859-1",
+    'Cookie': "ASPSESSIONIDSCCRRTSA=NGOIJMMDEIMAPDACNIEDFBID; FGTServer=2A56DE837DA99704910F47A454B42D1A8CCF150E0874FDE491A399A5EF5657BC0CF03A1EEB1C685B4C118A83F971F6198A78",
+    'Host': "www.juventudeweb.mte.gov.br"
+  }
+  r=requests.post(a, headers=h, data=f'acao=consultar%20cpf&cpf={cpf}&nocache=0.7636039437638835').text
   print(f'''
-{C}[{G}!{C}] Resultado da consulta:
-
-{C}Nome: {B}{nome}
-{C}Data de nascimento: {B}{nascimento}
-{C}Data de inscrição: {B}{inscricao}
-{C}Situação Cadastral: {B}{situacao}
+CPF: {re.search('NRCPF="(.*?)"', r).group(1)}
+Nome: {re.search('NOPESSOAFISICA="(.*?)"', r).group(1).title()}
+Nascimento: {re.search('DTNASCIMENTO="(.*?)"', r).group(1)}
+Nome da Mae: {re.search('NOMAE="(.*?)"', r).group(1).title()}
+Endereco: {re.search('NOLOGRADOURO="(.*?)"', r).group(1)}, {re.search('NRLOGRADOURO="(.*?)"', r).group(1)}
+Bairro: {re.search('NOBAIRRO="(.*?)"', r).group(1).title()}
+Cidade: {re.search('NOMUNICIPIO="(.*?)"', r).group(1).title()}-{re.search('SGUF="(.*?)"', r).group(1)}
+CEP: {re.search('NRCEP="(.*?)"', r).group(1)}
 ''')
   nova=input(f'{C}[{G}+{C}]Deseja realizar uma nova consulta?[{G}s{C}/{R}n{C}]: ').lower()
   if nova=='s' or nova=='sim':
