@@ -86,13 +86,14 @@ def gerarcpf():
   consulta(cpf)
   
 def consulta(cpf):
-  h={
+  try:
+    h={
     'Content-Type': "text/xml, application/x-www-form-urlencoded;charset=ISO-8859-1, text/xml; charset=ISO-8859-1",
     'Cookie': "ASPSESSIONIDSCCRRTSA=NGOIJMMDEIMAPDACNIEDFBID; FGTServer=2A56DE837DA99704910F47A454B42D1A8CCF150E0874FDE491A399A5EF5657BC0CF03A1EEB1C685B4C118A83F971F6198A78",
     'Host': "www.juventudeweb.mte.gov.br"
-  }
-  r=requests.post(a, headers=h, data=f'acao=consultar%20cpf&cpf={cpf}&nocache=0.7636039437638835').text
-  print(f'''
+    }
+    r=requests.post(a, headers=h, data=f'acao=consultar%20cpf&cpf={cpf}&nocache=0.7636039437638835').text
+    print(f'''
 {C}CPF: {B}{re.search('NRCPF="(.*?)"', r).group(1)}
 {C}Nome: {B}{re.search('NOPESSOAFISICA="(.*?)"', r).group(1).title()}
 {C}Nascimento: {B}{re.search('DTNASCIMENTO="(.*?)"', r).group(1)}
@@ -102,11 +103,12 @@ def consulta(cpf):
 {C}Cidade: {B}{re.search('NOMUNICIPIO="(.*?)"', r).group(1).title()}-{re.search('SGUF="(.*?)"', r).group(1)}
 {C}CEP: {B}{re.search('NRCEP="(.*?)"', r).group(1)}
 ''')
-  nova=input(f'{C}[{G}+{C}]Deseja realizar uma nova consulta?[{G}s{C}/{R}n{C}]: ').lower()
-  if nova=='s' or nova=='sim':
+    nova=input(f'{C}[{G}+{C}]Deseja realizar uma nova consulta?[{G}s{C}/{R}n{C}]: ').lower()
+    if nova=='s' or nova=='sim':
+      tipos()
+    else:
+      print(f'\n{C}Me acompanhe no Github: {G}https://github.com/p0isonBR{C}')
+      exit()
+  except(AttributeError):
+    print(f'{R}CPF Gerado nao existe{C}')
     tipos()
-  else:
-    print()
-    print(f'{C}Me acompanhe no Github: {G}https://github.com/p0isonBR{C}')
-    exit()
-tipos()
