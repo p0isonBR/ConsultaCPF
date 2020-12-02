@@ -98,7 +98,8 @@ def consulta(cpf):
 {C}Nome: {B}{re.search('NOPESSOAFISICA="(.*?)"', r).group(1).title()}
 {C}Nascimento: {B}{re.search('DTNASCIMENTO="(.*?)"', r).group(1)}
 {C}Nome da Mae: {B}{re.search('NOMAE="(.*?)"', r).group(1).title()}
-{C}Endereco: {B}{re.search('NOLOGRADOURO="(.*?)"', r).group(1)}, {re.search('NRLOGRADOURO="(.*?)"', r).group(1)}
+{C}Endereco: {B}{re.search('NOLOGRADOURO="(.*?)"', r).group(1).title()}, {re.search('NRLOGRADOURO="(.*?)"', r).group(1)}
+{C}Complemento: {B}{re.search('DSCOMPLEMENTO="(.*?)"', r).group(1)}
 {C}Bairro: {B}{re.search('NOBAIRRO="(.*?)"', r).group(1).title()}
 {C}Cidade: {B}{re.search('NOMUNICIPIO="(.*?)"', r).group(1).title()}-{re.search('SGUF="(.*?)"', r).group(1)}
 {C}CEP: {B}{re.search('NRCEP="(.*?)"', r).group(1)}
