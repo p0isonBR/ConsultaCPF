@@ -3,7 +3,7 @@ from time import sleep
 from subprocess import run
 import requests
 import re
-import banner
+from banner import Banner
 
 # Cores
 R = '\033[1;31m'
@@ -13,9 +13,13 @@ Y = '\033[1;33m'
 G = '\033[1;32m'
 RT = '\033[;0m'
 
+system('clear')
+
 print(f'{G}Checando por atualizacoes... {C}')
 
 run(["git", "pull"])
+
+Banner()
 
 sleep(3)
 
