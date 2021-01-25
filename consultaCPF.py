@@ -1,6 +1,6 @@
 from os import system
 from time import sleep
-import subprocess
+from subprocess import run
 import requests
 import re
 import banner
@@ -15,7 +15,7 @@ RT='\033[;0m'
 
 print(f'{G}Checando por atualizacoes... {C}')
 
-subprocess.run(["git", "pull"])
+run(["git", "pull"])
 
 sleep(3)
 
