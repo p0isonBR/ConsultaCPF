@@ -91,4 +91,6 @@ def consulta(cpf):
 	except(AttributeError):
 		print(f'{R}CPF Gerado nao existe{C}')
 		tipos()
-tipos()
+		
+if __name__=='__main__':
+	tipos()
