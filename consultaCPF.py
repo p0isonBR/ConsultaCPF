@@ -32,7 +32,7 @@ print(f'''{G}*By PoisonBR
 {B}██║     ██╔═══╝ ██╔══╝  {C}   ██║   ██║   ██║██║   ██║██║     ╚════██║
 {B}╚██████╗██║     ██║     {C}   ██║   ╚██████╔╝╚██████╔╝███████╗███████║
 {B} ╚═════╝╚═╝     ╚═╝     {C}   ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝╚══════╝ {G}v1.1
-Consulta de CPF gratis! {B}THX @Sr_M0h4mm3d_4li''')
+{G}Trending {C}mundial geral no github, obrigado a todos!''')
 
 def tipos():
 	print(f'''
@@ -89,7 +89,7 @@ def consulta(cpf):
 			print(f'\n{C}Me acompanhe no Github: {G}https://github.com/p0isonBR{C}')
 			exit()
 	except(AttributeError):
-		print(f'{R}CPF Gerado nao existe{C}')
+		print(f'{R}CPF consultado/gerado nao existe{C}')
 		tipos()
 		
 if __name__=='__main__':
