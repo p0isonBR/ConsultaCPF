@@ -44,7 +44,7 @@ def tipos():
 	tool = input(f'{C}[{G}+{C}] Selecione a forma de operação ({G}1 {C}ou {G}2{C}): ')
 	if tool == '1':
 		cpf = input(f'{C}[{G}*{C}] Informe o CPF a ser consultado: {B}')
-		re.sub('[^A-Za-z0-9]+', '', cpf)
+		cpf = re.sub('[^0-9]+', '', cpf)
 		consulta(cpf)
 	elif tool == '2':
 		gerarcpf()
