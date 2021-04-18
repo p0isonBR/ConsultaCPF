@@ -14,7 +14,7 @@
 
 ## Update 26/03:
 
-Apos denuncia do do site Tecnoblog, a endpoint de consulta (site Juventude Web do MTE) foi tirado do ar (materia <a href="https://tecnoblog.net/425553/dados-9-milhoes-brasileiros-expostos-mte-forum/">aqui</a>).
+Apos denuncia do site Tecnoblog, a endpoint de consulta (site Juventude Web do MTE) foi tirado do ar (materia <a href="https://tecnoblog.net/425553/dados-9-milhoes-brasileiros-expostos-mte-forum/">aqui</a>).
 
 ## Update 17/04:
 
