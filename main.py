@@ -8,7 +8,7 @@
 # 
 # Apoie meu trabalho: pix 04a06b5f-9036-47aa-9611-445b7c5e1246
 # 
-# -There is not knowledge that is not power-
+# -There is no knowledge that is not power-
 
 from os import system
 from time import sleep
