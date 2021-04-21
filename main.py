@@ -26,24 +26,6 @@ Y = '\033[1;33m'
 G = '\033[1;32m'
 RT = '\033[;1m'
 
-system('clear')
-
-print(f'{G}Checando por atualizacoes... {C}')
-
-run(["git", "pull"])
-Banner()
-sleep(3)
-system('clear')
-
-print(f'''{G}*By PoisonBR
-{B} █████╗██████╗ ██████╗{C}████████╗ █████╗  █████╗ ██╗    ██████╗
-{B}██╔═══╝██╔══██╗██╔═══╝{C}╚══██╔══╝██╔══██╗██╔══██╗██║    ██╔═══╝
-{B}██║    ██████╔╝█████╗ {C}   ██║   ██║  ██║██║  ██║██║    ██████╗
-{B}██║    ██╔═══╝ ██╔══╝ {C}   ██║   ██║  ██║██║  ██║██║    ╚═══██║
-{B}╚█████╗██║     ██║    {C}   ██║   ╚█████╔╝╚█████╔╝██████╗██████║
-{B} ╚════╝╚═╝     ╚═╝    {C}   ╚═╝    ╚════╝  ╚════╝ ╚═════╝╚═════╝{G}v1.2
-{G}Trending {C}mundial geral no github!''')
-
 
 def tipos():
     print(f'''
@@ -96,7 +78,7 @@ def consulta(cpf):
     try:
         ab = requests.get(base64.b64decode(re.search("\'(.*?)\'", a).group(1)).decode() + cpf).json()
         
-        print(f'''
+        print(f"""
 {C}CPF: {B}{ab["cpf"]}
 {C}Nome: {B}{ab["nome"].title()}
 {C}Nascimento: {B}{ab["dataNascimento"]}
@@ -107,7 +89,7 @@ def consulta(cpf):
 {C}Bairro: {B}{ab["enderecoBairro"].title()}
 {C}Cidade: {B}{ab["enderecoMunicipio"].title()}
 {C}CEP: {B}{ab["enderecoCep"]}
-''')
+""")
         nova = input(f'{C}[{G}+{C}]Deseja realizar uma nova consulta?[{G}s{C}/{R}n{C}]: ').lower()
 
         if nova == 's' or nova == 'sim':
@@ -124,6 +106,14 @@ def consulta(cpf):
 
 if __name__ == '__main__':
     try:
+        system('clear')
+        print(f'{G}Checando por atualizacoes... {C}')
+        run(["git", "pull"])
+        system('clear')
+        print(b.banner)
+        sleep(3)
+        system('clear')
+        print(b.banner2)
         tipos()
 
     except Exception as e:
