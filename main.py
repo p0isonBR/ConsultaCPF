@@ -84,7 +84,7 @@ def consulta(cpf):
 {C}Nascimento: {B}{ab["dataNascimento"]}
 {C}Nome da Mae: {B}{ab["nomeMae"].title()}
 {C}Nome do Pai: {B}{ab["nomePai"].title()}
-{C}Endereco: {B}{ab["enderecoTipoLogradouro"].title()} {r["enderecoLogradouro"].title()}, {r["enderecoNumero"]}
+{C}Endereco: {B}{ab["enderecoTipoLogradouro"].title()} {ab["enderecoLogradouro"].title()}, {ab["enderecoNumero"]}
 {C}Complemento: {B}{ab["enderecoComplemento"].title()}
 {C}Bairro: {B}{ab["enderecoBairro"].title()}
 {C}Cidade: {B}{ab["enderecoMunicipio"].title()}
