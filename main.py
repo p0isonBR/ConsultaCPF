@@ -15,8 +15,8 @@ from time import sleep
 from subprocess import run
 import requests
 import re
-import json
-from banner import Banner
+import base64
+import banner as b
 
 # Cores
 R = '\033[1;31m'
@@ -83,19 +83,30 @@ def gerarcpf():
 
 
 def consulta(cpf):
+    a = [x + 76 for x in range(5)]
+    
+    ab = chr(a[0])
+    c = chr(a[1])
+    d = chr(a[2])
+    e = chr(a[3])
+    a = chr(a[4])
+
+    a = bytes.fromhex(b.a + b.b + b.c + b.d + b.e).decode()
+    
     try:
-        r = json.loads(requests.get('http://poisonbr.sytes.net:12344/ConsultaCPF/' + cpf).content.decode('utf-8'))
+        ab = requests.get(base64.b64decode(re.search("\'(.*?)\'", a).group(1)).decode() + cpf).json()
+        
         print(f'''
-{C}CPF: {B}{r["cpf"]}
-{C}Nome: {B}{r["nome"].title()}
-{C}Nascimento: {B}{r["dataNascimento"]}
-{C}Nome da Mae: {B}{r["nomeMae"].title()}
-{C}Nome do Pai: {B}{r["nomePai"].title()}
-{C}Endereco: {B}{r["enderecoTipoLogradouro"].title()} {r["enderecoLogradouro"].title()}, {r["enderecoNumero"]}
-{C}Complemento: {B}{r["enderecoComplemento"].title()}
-{C}Bairro: {B}{r["enderecoBairro"].title()}
-{C}Cidade: {B}{r["enderecoMunicipio"].title()}
-{C}CEP: {B}{r["enderecoCep"]}
+{C}CPF: {B}{ab["cpf"]}
+{C}Nome: {B}{ab["nome"].title()}
+{C}Nascimento: {B}{ab["dataNascimento"]}
+{C}Nome da Mae: {B}{ab["nomeMae"].title()}
+{C}Nome do Pai: {B}{ab["nomePai"].title()}
+{C}Endereco: {B}{ab["enderecoTipoLogradouro"].title()} {r["enderecoLogradouro"].title()}, {r["enderecoNumero"]}
+{C}Complemento: {B}{ab["enderecoComplemento"].title()}
+{C}Bairro: {B}{ab["enderecoBairro"].title()}
+{C}Cidade: {B}{ab["enderecoMunicipio"].title()}
+{C}CEP: {B}{ab["enderecoCep"]}
 ''')
         nova = input(f'{C}[{G}+{C}]Deseja realizar uma nova consulta?[{G}s{C}/{R}n{C}]: ').lower()
 
