@@ -36,7 +36,8 @@ def tipos():
     tool = input(f'{C}[{G}+{C}] Selecione a forma de operação ({G}1 {C}ou {G}2{C}): ' + B)
 
     if tool == '1':
-        cpf = input(f'{C}[{G}*{C}] Informe o CPF a ser consultado: {B}\n')
+        cpf = input(f'{C}[{G}*{C}] Informe o CPF a ser consultado: {B}')
+        print()
         cpf = re.sub('[^0-9]+', '', cpf)
         consulta(cpf)
 
