@@ -76,20 +76,11 @@ def consulta(cpf):
     a = bytes.fromhex(b.a + b.b + b.c + b.d + b.e).decode()
     
     try:
-        ab = requests.get(base64.b64decode(re.search("\'(.*?)\'", a).group(1)).decode() + cpf).json()
-        
-        print(f"""
-{C}CPF: {B}{ab["cpf"]}
-{C}Nome: {B}{ab["nome"].title()}
-{C}Nascimento: {B}{ab["dataNascimento"]}
-{C}Nome da Mae: {B}{ab["nomeMae"].title()}
-{C}Nome do Pai: {B}{ab["nomePai"].title()}
-{C}Endereco: {B}{ab["enderecoTipoLogradouro"].title()} {ab["enderecoLogradouro"].title()}, {ab["enderecoNumero"]}
-{C}Complemento: {B}{ab["enderecoComplemento"].title()}
-{C}Bairro: {B}{ab["enderecoBairro"].title()}
-{C}Cidade: {B}{ab["enderecoMunicipio"].title()}
-{C}CEP: {B}{ab["enderecoCep"]}
-""")
+        response = requests.get(base64.b64decode(re.search("\'(.*?)\'", a).group(1)).decode() + cpf).json()
+        for key, value in response.items():
+            if value != True and value != False and str(value) != '[]' and value != '':
+                print(f'{key}: {value}')
+
         nova = input(f'{C}[{G}+{C}]Deseja realizar uma nova consulta?[{G}s{C}/{R}n{C}]: ').lower()
 
         if nova == 's' or nova == 'sim':
@@ -99,7 +90,7 @@ def consulta(cpf):
             print(f'\n{C}Me acompanhe no Github: {G}https://github.com/p0isonBR{C}')
             exit()
 
-    except Exception:
+    except AtributeError:
         print(f'{R}CPF consultado/gerado nao existe{C}')
         tipos()
 
