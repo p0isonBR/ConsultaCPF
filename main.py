@@ -36,7 +36,7 @@ def tipos():
     tool = input(f'{C}[{G}+{C}] Selecione a forma de operação ({G}1 {C}ou {G}2{C}): ' + B)
 
     if tool == '1':
-        cpf = input(f'{C}[{G}*{C}] Informe o CPF a ser consultado: {B}')
+        cpf = input(f'{C}[{G}*{C}] Informe o CPF a ser consultado: {B}\n')
         cpf = re.sub('[^0-9]+', '', cpf)
         consulta(cpf)
 
@@ -60,7 +60,7 @@ def gerarcpf():
     print(f'{C}[{Y}i{C}] O CPF gerado foi: {B} {cpf2}')
 
     sleep(1)
-    print(f'{C}[{G}*{C}] Consultando CPF gerado...')
+    print(f'{C}[{G}*{C}] Consultando CPF gerado...\n')
     consulta(cpf)
 
 
@@ -79,9 +79,9 @@ def consulta(cpf):
         response = requests.get(base64.b64decode(re.search("\'(.*?)\'", a).group(1)).decode() + cpf).json()
         for key, value in response.items():
             if value != True and value != False and str(value) != '[]' and value != '':
-                print(f'{key}: {value}')
+                print(f'{C}{key}: {B}{value}')
 
-        nova = input(f'{C}[{G}+{C}]Deseja realizar uma nova consulta?[{G}s{C}/{R}n{C}]: ').lower()
+        nova = input(f'\n{C}[{G}+{C}]Deseja realizar uma nova consulta?[{G}s{C}/{R}n{C}]: ').lower()
 
         if nova == 's' or nova == 'sim':
             tipos()
@@ -90,22 +90,19 @@ def consulta(cpf):
             print(f'\n{C}Me acompanhe no Github: {G}https://github.com/p0isonBR{C}')
             exit()
 
-    except AtributeError:
-        print(f'{R}CPF consultado/gerado nao existe{C}')
+    except Exception as e:
+        print(f'{R}CPF consultado/gerado nao existe.\n{C}Detalhe do erro: {Y}{e}{RT}')
         tipos()
 
 
 if __name__ == '__main__':
-    try:
-        system('clear')
-        print(f'{G}Checando por atualizacoes... {C}')
-        run(["git", "pull"])
-        system('clear')
-        print(b.banner)
-        sleep(3)
-        system('clear')
-        print(b.banner2)
-        tipos()
+    system('clear')
+    print(f'{G}Checando por atualizacoes... {C}')
+    run(["git", "pull"])
+    system('clear')
+    print(b.banner)
+    sleep(3)
+    system('clear')
+    print(b.banner2)
+    tipos()
 
-    except Exception as e:
-        print(f'{C}Erro: {R}{e}{RT}')
