@@ -19,3 +19,7 @@ Apos denuncia do site Tecnoblog, a endpoint de consulta (site Juventude Web do M
 ## Update 17/04:
 
 Nova endpoint (minha particular) adicionada, por tempo indeterminado. A mesma se encontra a venda no <a href="https://rapidapi.com/p0isonBR/api/consulta-cpf1">RapidAPI</a>.
+
+## Update 23/04:
+
+Devido ao mal uso da API aqui fornecida gratuitamente, a mesma foi fechada.
