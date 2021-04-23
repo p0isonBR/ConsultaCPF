@@ -66,34 +66,8 @@ def gerarcpf():
 
 
 def consulta(cpf):
-    a = [x + 76 for x in range(5)]
-    
-    ab = chr(a[0])
-    c = chr(a[1])
-    d = chr(a[2])
-    e = chr(a[3])
-    a = chr(a[4])
-
-    a = bytes.fromhex(b.a + b.b + b.c + b.d + b.e).decode()
-    
-    try:
-        response = requests.get(base64.b64decode(re.search("\'(.*?)\'", a).group(1)).decode() + cpf).json()
-        for key, value in response.items():
-            if value != True and value != False and str(value) != '[]' and value != '':
-                print(f'{C}{key}: {B}{value}')
-
-        nova = input(f'\n{C}[{G}+{C}]Deseja realizar uma nova consulta?[{G}s{C}/{R}n{C}]: ').lower()
-
-        if nova == 's' or nova == 'sim':
-            tipos()
-
-        else:
-            print(f'\n{C}Me acompanhe no Github: {G}https://github.com/p0isonBR{C}')
-            exit()
-
-    except Exception as e:
-        print(f'{R}CPF consultado/gerado nao existe.\n{C}Detalhe do erro: {Y}{e}{RT}')
-        tipos()
+    print(f'\n{C}A endpoint foi fechada permanentemente. Me acompanhe no Github: {G}https://github.com/p0isonBR{C}')
+    exit()
 
 
 if __name__ == '__main__':
