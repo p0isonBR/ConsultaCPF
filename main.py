@@ -66,7 +66,7 @@ def gerarcpf():
 
 
 def consulta(cpf):
-    print(f'\n{C}A endpoint foi fechada permanentemente. Me acompanhe no Github: {G}https://github.com/p0isonBR{C}')
+    print(f'{C}A endpoint foi fechada permanentemente. Me acompanhe no Github: {G}https://github.com/p0isonBR{C}\n')
     exit()
 
 
