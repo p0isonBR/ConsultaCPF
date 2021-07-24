@@ -24,11 +24,11 @@ Nova endpoint (minha particular) adicionada, por tempo indeterminado. A mesma se
 
 Devido ao mal uso da API aqui fornecida gratuitamente, a mesma foi fechada.
 
-## Update 26/04
+## Update 23/07
 
-Script refeito e compilado, obfuscação dos parametros de consulta, evitando assim uso inadequado.
+Endpoint da receita federal adicionado.
 
 Modo de uso:
 ```
-$ python consultaCPF
+$ python main.py
 ```
